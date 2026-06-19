@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-store">
+    <title>MRKTNGCM66 Dashboard</title>
+    <link rel="stylesheet" href="src/styles.css?v=20260619-2">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">CM66 marketing control</p>
+          <h1>MRKTNGCM66</h1>
+          <p class="subtitle">Управленческий дашборд по расходам, заявкам, квалам, визитам и продажам.</p>
+        </div>
+        <div class="source-pill" id="sourceStatus">Источник проверяется</div>
+      </header>
+
+      <section class="period-strip" aria-label="Периоды">
+        <div>
+          <span>Период</span>
+          <strong id="activePeriodLabel">2026 Май-Июнь с 1 по 14</strong>
+        </div>
+        <div class="period-buttons" id="periodChips"></div>
+      </section>
+
+      <section class="toolbar" aria-label="Фильтры">
+        <label>
+          Расчёт
+          <select id="viewFilter"></select>
+        </label>
+        <label>
+          Канал
+          <select id="channelFilter"></select>
+        </label>
+        <label>
+          Город
+          <select id="cityFilter"></select>
+        </label>
+        <button id="resetFilters" type="button">Сбросить</button>
+      </section>
+
+      <section class="grid kpi-grid" id="kpiGrid"></section>
+
+      <section class="dashboard-grid">
+        <article class="panel panel-wide">
+          <div class="panel-head">
+            <div>
+              <h2>Воронка</h2>
+              <p>Заявки → квалы → визиты → продажи в кредит</p>
+            </div>
+            <span id="funnelRate" class="metric-badge"></span>
+          </div>
+          <div id="funnelChart" class="funnel"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Эффективность каналов</h2>
+              <p>Расход, CPL и продажи</p>
+            </div>
+          </div>
+          <div id="channelChart" class="bar-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Города</h2>
+              <p>Где заявки дешевле и ближе к продаже</p>
+            </div>
+          </div>
+          <div id="cityChart" class="bar-list compact"></div>
+        </article>
+
+        <article class="panel panel-wide">
+          <div class="panel-head">
+            <div>
+              <h2>Дневная динамика</h2>
+              <p>Демо-ряд из листа «Города 12.12.25»</p>
+            </div>
+            <div class="segmented" id="dailyMetric"></div>
+          </div>
+          <svg id="trendChart" class="trend" role="img" aria-label="Динамика по дням"></svg>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Контроль данных</h2>
+              <p>Структура импорта и проблемные места</p>
+            </div>
+          </div>
+          <div id="qualityTable" class="quality-table"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Подключение</h2>
+              <p>Готово под закрытую Google-таблицу</p>
+            </div>
+          </div>
+          <div class="connection-copy">
+            <p>Вставьте ссылку на Google Sheet в <code>src/config.js</code>. Если прямой доступ не сработает для приватной таблицы, используйте Apps Script-прокси из документации.</p>
+            <dl>
+              <dt>Ожидаемый формат</dt>
+              <dd>Листы с агрегатами: <code>Все вместе_Факт</code>, <code>1. Директ_Факт</code>, пары <code>_Факт</code>/<code>_ДИ</code>.</dd>
+              <dt>Единый слой</dt>
+              <dd><code>city</code>, <code>channel</code>, <code>view</code>, KPI-поля расходов, лидов, квалов, визитов и продаж.</dd>
+            </dl>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="src/config.js?v=20260619-2"></script>
+    <script src="src/data-source.js?v=20260619-2"></script>
+    <script src="src/app.js?v=20260619-2"></script>
+  </body>
+</html>

@@ -1,0 +1,454 @@
+:root {
+  --bg: #f5f7fb;
+  --ink: #18212f;
+  --muted: #667085;
+  --line: #d9e0ea;
+  --panel: #ffffff;
+  --brand: #1d4ed8;
+  --brand-2: #0f766e;
+  --warn: #b45309;
+  --soft: #e8eef8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  width: min(1440px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 44px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.subtitle,
+.panel-head p,
+.connection-copy,
+.kpi-card small,
+.bar-copy span,
+.quality-row span {
+  color: var(--muted);
+}
+
+.subtitle {
+  margin-top: 8px;
+  max-width: 760px;
+}
+
+.source-pill,
+.metric-badge {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  padding: 9px 13px;
+  color: var(--muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.period-strip,
+.toolbar {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.period-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.period-strip span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.period-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.period-buttons button {
+  height: 36px;
+  padding: 0 13px;
+}
+
+.period-buttons .active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr)) auto;
+  gap: 12px;
+  align-items: end;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  min-width: 0;
+}
+
+select,
+button {
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+select {
+  width: 100%;
+  min-width: 0;
+  padding: 0 10px;
+}
+
+button {
+  padding: 0 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+.kpi-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.kpi-card,
+.empty-state,
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 8px;
+  padding: 22px;
+}
+
+.empty-state strong {
+  font-size: 22px;
+}
+
+.empty-state span,
+.panel-empty {
+  color: var(--muted);
+}
+
+.panel-empty {
+  padding: 16px 0;
+}
+
+.kpi-card {
+  padding: 14px;
+  min-height: 116px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.kpi-card span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.kpi-card strong {
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 16px;
+}
+
+.panel {
+  padding: 18px;
+  min-width: 0;
+}
+
+.panel-wide {
+  grid-column: span 1;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.funnel {
+  display: grid;
+  gap: 14px;
+}
+
+.funnel-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 76px;
+  gap: 14px;
+  align-items: center;
+}
+
+.funnel-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.funnel-label span,
+.funnel-row em {
+  color: var(--muted);
+  font-style: normal;
+}
+
+.funnel-track,
+.bar-track {
+  height: 16px;
+  border-radius: 999px;
+  background: var(--soft);
+  overflow: hidden;
+}
+
+.funnel-track span,
+.bar-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+}
+
+.bar-list {
+  display: grid;
+  gap: 13px;
+}
+
+.bar-row {
+  display: grid;
+  gap: 6px;
+}
+
+.bar-copy {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bar-copy span {
+  font-size: 12px;
+  text-align: right;
+}
+
+.compact .bar-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.compact .bar-copy span {
+  text-align: left;
+}
+
+.trend {
+  width: 100%;
+  min-height: 240px;
+  display: block;
+}
+
+.axis {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.trend-line {
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 3;
+}
+
+.trend-dot {
+  fill: #fff;
+  stroke: var(--brand);
+  stroke-width: 2;
+}
+
+.trend-label,
+.empty-chart {
+  fill: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.segmented {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.segmented button {
+  height: 32px;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.segmented .active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.quality-table {
+  display: grid;
+  gap: 10px;
+}
+
+.quality-row {
+  display: grid;
+  gap: 2px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.quality-row:last-child {
+  border-bottom: 0;
+}
+
+.connection-copy {
+  display: grid;
+  gap: 14px;
+  line-height: 1.55;
+}
+
+code {
+  padding: 2px 5px;
+  border-radius: 5px;
+  background: #eef2f7;
+  color: #334155;
+}
+
+dt {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+dd {
+  margin: 4px 0 12px;
+}
+
+@media (max-width: 1100px) {
+  .kpi-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100% - 20px, 720px);
+    padding-top: 18px;
+  }
+
+  .topbar {
+    display: grid;
+  }
+
+  .period-strip {
+    align-items: stretch;
+    display: grid;
+  }
+
+  .period-buttons {
+    justify-content: stretch;
+  }
+
+  .period-buttons button {
+    flex: 1 1 150px;
+  }
+
+  .toolbar,
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .funnel-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .bar-copy {
+    display: grid;
+  }
+
+  .bar-copy span {
+    text-align: left;
+  }
+}
