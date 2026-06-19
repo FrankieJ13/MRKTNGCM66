@@ -212,7 +212,7 @@ async function loadDashboardData() {
 
 function humanizeSourceError(error) {
   if (error && error.message === "Failed to fetch") {
-    return "закрытая Google-таблица не отдаёт данные напрямую. Подключите Apps Script-прокси в src/config.js";
+    return "прокси не отдал CSV: он требует Google-вход или заблокирован CORS. Проверьте настройки Apps Script Web App";
   }
   return error && error.message ? error.message : "источник недоступен";
 }
