@@ -206,8 +206,15 @@ async function loadDashboardData() {
     };
   } catch (error) {
     console.warn("Google Sheets load failed", error);
-    return emptyDataset(error.message);
+    return emptyDataset(humanizeSourceError(error));
   }
+}
+
+function humanizeSourceError(error) {
+  if (error && error.message === "Failed to fetch") {
+    return "закрытая Google-таблица не отдаёт данные напрямую. Подключите Apps Script-прокси в src/config.js";
+  }
+  return error && error.message ? error.message : "источник недоступен";
 }
 
 function emptyDataset(error = "") {

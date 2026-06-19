@@ -67,7 +67,7 @@ function renderKpis(rows) {
     document.querySelector("#kpiGrid").innerHTML = `
       <article class="empty-state">
         <strong>Нет доступа к данным</strong>
-        <span>Дашборд подключён к закрытой Google-таблице. Для просмотра нужен доступ к источнику или Apps Script-прокси.</span>
+        <span>Дашборд не хранит данные в репозитории. Для просмотра закрытой таблицы нужен Apps Script-прокси, развёрнутый от аккаунта с доступом к Google Sheets.</span>
       </article>
     `;
     return;
